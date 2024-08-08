@@ -36,4 +36,6 @@ ex: helm lint helloworld  -----▶️ This aims to find any errors or misconfigu
 8) helm uninstall <release-name>
 ex: helm uninstall myhelloworldrelease -----▶️ This will remove myhelloworldrelease chart from k8s.
 
+9) Installing a Golang webserver using Helm
+
 
