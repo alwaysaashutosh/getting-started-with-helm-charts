@@ -1,0 +1,17 @@
+Basic Helm CLI commands 
+
+
+i) helm install <release-name>  <chart-name>
+Note : Helm-Chart deployment/ Release name can be anything its upto you and chart name refers to the name/location your chart .
+Example:  
+        🥇helm install myhelloworld helloworld
+
+
+ii) helm delete myhelloworld
+🥇 To delete the deployed helm chart .
+
+iii) helm list -a
+🥇 To list all the deployed charts .
+
+
+https://jhooq.com/getting-start-with-helm-chart/

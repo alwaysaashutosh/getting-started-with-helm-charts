@@ -1,0 +1,39 @@
+
+1) helm create <name-of-the-chart>
+ex: helm create helloworld -----▶️  This will create a boilerplate for our chart . A repo with name helloworld will be created along with the default files .
+
+2) helm install <custom-release> <name-of-the-chart>
+ex: helm install myhelloworldrelease helloworld ------▶️ This will install the helloworld chart with the release name myhelloworldrelease to our cluster.
+
+3) helm upgrade <release-name-which-is-already-deployed> <name-of-the-chart>
+ex: helm upgrade myhelloworldrelease helloworld -----▶️ This will upgrade the existing release .
+
+4) hem rollback <release-whhich-is-already-deployed> <chart-version/revison>
+ex: helm rollback myhelloworldrelease 1 -----▶️ Here we want to skip to the 1st revison .
+
+Note: The revison number will be incremented in a sequential way .
+
+5) helm install <release-name> --debug --dry-run <chart-name>
+ex: helm install myhelloworldrelease --debug --dry-run helloworld  -----▶️ Here its debugging and doing a dry run, its recommended to use it before installing any helm chart .
+
+              👨‍💻install.go:222: [debug] Original chart version: ""
+              👨‍💻install.go:239: [debug] CHART PATH: /home/ashutosh/go/src/github.com/Golang/Getting started with HELM/helloworld
+              👨‍💻NAME: myhelloworldrelease
+              👨‍💻LAST DEPLOYED: Thu Aug  8 15:36:07 2024
+              👨‍💻NAMESPACE: default
+              👨‍💻STATUS: pending-install
+
+It will validate with your kube-api server results you in the values which are going to be a part of that chart . The status will be pending-install 
+
+6) helm template <chart-name>
+ex: helm template helloworld -----▶️ This command aims to render the charts locally .
+
+Diffrence between --debug --dry-run and template is template validates the yaml without connecting to the k8s api server whereas in case of --debug --dry-run it will connect with the kube-api server .
+
+7) helm lint <chart-name>
+ex: helm lint helloworld  -----▶️ This aims to find any errors or misconfiguration in the helm chart .
+
+8) helm uninstall <release-name>
+ex: helm uninstall myhelloworldrelease -----▶️ This will remove myhelloworldrelease chart from k8s.
+
+
