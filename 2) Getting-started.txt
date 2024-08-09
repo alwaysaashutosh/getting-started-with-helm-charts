@@ -121,7 +121,8 @@ template---
     Package  📦  helm package <chart-name> --version 0.1.2          | you can specify the version otherwise default version will be 0.1.0  | creates a tar file with <chart-name>-<version>.tgz
 
     Push|Pull📍  helm push <tarball_file_.tgz> <repourl>
-                 eg:     helm push charts-0.1.0.tgz oci://registry-1.docker.io/<username/namespacename>
+                 eg:     helm push charts-v0.1.0.tgz oci://registry-1.docker.io/<username/namespacename>
+                         with the above command it will get pushed to the charts repo in your namespace with 0.1.0 version/tag | ashutoshk1/charts:v0.1.0
 
                                                         
                  
