@@ -1,0 +1,8 @@
+wordpressUsername: jhooq
+wordpressPassword: jhooq
+wordpressEmail: contact@jhooq.com
+wordpressFirstName: Rahul
+wordpressLastName: Wagh
+wordpressBlogName: Jhooq.com
+service: 
+  type: LoadBalancer

@@ -38,4 +38,81 @@ ex: helm uninstall myhelloworldrelease -----▶️ This will remove myhelloworld
 
 9) Installing a Golang webserver using Helm
 
+10) Helmfile is an abstraction over helm chart commands, with a single command [helm sync] you will be able to do all the operations .
+ex: writing a helm file 
+
+        releases:
+            - name: <release-name>
+              chart: <location-of-your-chart/chart_name>
+              install:   true/false (true in case if you want to install, false in case of uninstalling) 
+
+11) Using github reposiory for installing helmchart using helmfile .
+
+        repositories:
+            - name: <name-of-your-repo>
+              url : <url-to-the-github-repo>
+        releases:
+            - name: <release-name>
+              chart: <chart_name/location>
+              installed:  true/false
+              
+12) Install multiple helm charts using helmfile
+
+        releases:
+            - name: <release-name-1>
+              chart: <location-of-your-chart/chart_name>
+              install:   true/false (true in case if you want to install, false in case of uninstalling) 
+
+
+            - name: <release-name-2>
+              chart: <location-of-your-chart/chart_name>
+              install:   true/false (true in case if you want to install, false in case of uninstalling) 
+
+13) Helm Repo (Used to import charts from various opensouce repositories)
+
+14) helm search hub <repo-name> 
+ex: helm search hub wordpress  -----▶️ using search hub we can search for various charts and import it for our use .
+    helm search hub wordpress  --max-col-width=0 -----▶️ this will show us the full repo url.
+
+15) helm repo add <name> <chart-url>
+ex: helm repo add bitnami https://charts.bitnami.com/bitnami -----▶️ In this example i am using bitnami as they provide the most stable chart in the helm world.
+
+
+
+15) helm search repo <chart_name_to_be_searched> --versions
+ex: helm search repo wordpress --versions
+
+16) helm show readme <chart-name> --version <chart-version>
+ex: helm show readme bitnami/wordpress --version 10.0.3 -----▶️ This command is basically used to get instruction from the readme file
+
+
+
+17) Setup a user and Password for wordpress
+
+
+18) Installing wordpress Helm Chart 
+ex: 
+    helm install <release-name> <chart-name> --values=<yaml-used-to-override-the-chart> --namespace <namespace-name>  --version <helm-chart-version>
+    helm install wordpress bitnami/wordpress --values=wordpress-values.yaml --namespace nswordpress --version 10.0.3
+
+    i)  --values OR -f flag in your Helm commands is used to override the values in a chart and pass in a new file.
+    ii) --namespace or -n flag is used to add namespace scope for this request.
+
+19) Helm hooks  - helm hooks can be any kubernates resources ie; (Batch, Deployment, Service)
+hooks folder can be created inside the templates directory .
+
+template---
+           |_hooks --▶️ pre-install.yaml | post-install.yaml  (refer this URL for more info : https://helm.sh/docs/topics/charts_hooks/)
+
+20) Annotation are the most important part of hooks ---▶️ What makes them special is annotation we add to the metadata: section.
+      "helm.sh/hook": "pre-install"                            |      "helm.sh/hook": "post-install"
+      "helm.sh/hook-weight": "0"                               |      "helm.sh/hook-weight": "5"
+      "helm.sh/hook-delete-policy": hook-succeeded             |      "helm.sh/hook-delete-policy": hook-succeeded
+
+
+21) helm test <deployed-release-name>  -------▶️ Its the kind of running an unit test in your release . You can find the test file inside templates/tests .
+                                                        
+                 
+
+
 

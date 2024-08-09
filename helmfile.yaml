@@ -1,0 +1,8 @@
+repositories:
+  - name: helloworld
+    url:  git+https://github.com/alwaysaashutosh/getting-started-with-helm-charts
+
+releases:
+  - name: helloworldrelease
+    chart: helloworld/helloworld
+    installed: true
