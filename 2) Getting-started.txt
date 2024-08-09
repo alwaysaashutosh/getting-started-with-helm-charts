@@ -111,6 +111,18 @@ template---
 
 
 21) helm test <deployed-release-name>  -------▶️ Its the kind of running an unit test in your release . You can find the test file inside templates/tests .
+
+
+22) Push Helm charts to Dockerhub OCI(Open Container Initiative) .
+
+    Login    ❎  helm registry login <host> -u <username> -p <password>             | docker login command will also work
+               eg :     helm registry login registry-1.docker.io -u your_username -p your_password
+
+    Package  📦  helm package <chart-name> --version 0.1.2          | you can specify the version otherwise default version will be 0.1.0  | creates a tar file with <chart-name>-<version>.tgz
+
+    Push|Pull📍  helm push <tarball_file_.tgz> <repourl>
+                 eg:     helm push charts-0.1.0.tgz oci://registry-1.docker.io/<username/namespacename>
+
                                                         
                  
 
